@@ -1,14 +1,17 @@
+-- ********************Task 3 *******************
 
+-- ********************Task 3 a *******************
  
-
 select medallion, pickup_datetime, count(*) as num_trips 
-	from alltrips group by medallion, pickup_datetime having num_trips > 1;
+	from alltrips 
+		group by medallion, pickup_datetime 
+		Having num_trips > 1;
 
-# There is more than one record for a given taxi at the same time.  There are approximately 248 records where the medallion number and the pickup
+# Yes, there is more than one record for a given taxi at the same time.  There are approximately 248 records where the medallion number and the pickup
 # datetime appear more than one time in the dataset.  What is interesting about it is the fact that each of these records appear about 4x in the 
 # dataset. 
 
-
+-- ********************Task 3 b *******************''
 select x.medallion, (IFNULL(gps,0)/count(*)) * 100  as percentage_of_trips 
 	from alltrips x left join (
 		select medallion, count(*) as gps 
@@ -22,6 +25,7 @@ select x.medallion, (IFNULL(gps,0)/count(*)) * 100  as percentage_of_trips
 	on x.medallion = y.medallion 
 	group by x.medallion;
 
+-- ********************Task 3 c *******************
 
 select hack_license, count(medallion) as taxis 
 	from alltrips 
