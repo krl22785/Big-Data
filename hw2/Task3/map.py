@@ -21,7 +21,7 @@ for line in sys.stdin:
     
    	for word in l:	
 	
-		updatedWord = word.translate(None, punc + digi).lower()
+		updatedWord = word.translate(None, punc + digi)
        
 		if len(updatedWord) != 7:
 			pass
