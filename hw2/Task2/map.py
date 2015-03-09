@@ -1,0 +1,38 @@
+#!/usr/bin/python
+
+import sys
+import csv
+import string 
+
+f = open("stop-word-list.csv")
+reader = csv.reader(f) 
+stop = reader.next()
+stopList = []
+
+for word in stop:
+	stopList.append(word.strip()) 
+
+punc = string.punctuation
+digi = string.digits
+
+
+def firstLetter(word):
+        initialLetter = word[0]
+	letter = initialLetter.upper()
+	return "%s\t%d" %(letter, 1)
+
+# input comes from STDIN (stream data that goes to the program)
+for line in sys.stdin:
+    
+    l = line.strip().split()
+    
+    for word in l:	
+	updatedWord = word.translate(None, punc + digi + " ").lower()
+ 
+	if len(updatedWord) == 0: 
+		pass
+	else:
+		if updatedWord not in stopList:
+			print firstLetter(updatedWord) 	
+        	
+
