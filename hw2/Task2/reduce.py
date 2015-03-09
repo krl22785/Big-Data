@@ -24,3 +24,5 @@ for line in sys.stdin:
         current_word = word
         current_sum = count
 
+if current_word == word:
+    print '%s\t%d' % (current_word, current_sum)

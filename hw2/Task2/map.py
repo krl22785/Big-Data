@@ -27,7 +27,7 @@ for line in sys.stdin:
     l = line.strip().split()
     
     for word in l:	
-	updatedWord = word.translate(None, punc + digi + " ").lower()
+	updatedWord = word.translate(None, punc + digi + " ")
  
 	if len(updatedWord) == 0: 
 		pass
