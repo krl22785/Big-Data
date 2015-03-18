@@ -19,13 +19,16 @@ for line in sys.stdin:
 		key3 = splits[2]
 		key4 = splits[3]
 		keyAttributes = (key1, key2, key3, key4)
-
-		#payment_type,fare_amount,surcharge,mta_tax,tip_amount,tolls_amount,total_amount = splits[4:] 
+ 
 		otherAttributes = ",".join(splits[4:]) 		
 		
 		valuePair = ("fares", otherAttributes) 
-		print "%s\t%s" % (keyAttributes, valuePair) 
 		
+		if key1 != 'medallion': 
+			print "%s\t%s" % (keyAttributes, valuePair) 
+		else:
+			pass		
+
 	else:
 		
 		key1 = splits[0]
@@ -39,5 +42,7 @@ for line in sys.stdin:
 		otherAttributes = other1 + "," + other2
 		valuePair = ("trips", otherAttributes) 	
 		
-		
-		print "%s\t%s" % (keyAttributes, valuePair)
+		if key1 != 'medallion':
+			print "%s\t%s" % (keyAttributes, valuePair)
+		else:
+			pass
