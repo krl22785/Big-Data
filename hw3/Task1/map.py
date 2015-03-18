@@ -14,25 +14,30 @@ for line in sys.stdin:
 
 	if len(splits) == 11: 
 		
-		keyAttributes = splits[0:4]
-		otherAttributes = splits[4:] 
-		valuePair = ("fares", otherAttributes) 
+		key1 = splits[0]
+		key2 = splits[1]
+		key3 = splits[2]
+		key4 = splits[3]
+		keyAttributes = (key1, key2, key3, key4)
+
+		#payment_type,fare_amount,surcharge,mta_tax,tip_amount,tolls_amount,total_amount = splits[4:] 
+		otherAttributes = ",".join(splits[4:]) 		
 		
+		valuePair = ("fares", otherAttributes) 
 		print "%s\t%s" % (keyAttributes, valuePair) 
 		
 	else:
 		
-		keyAttributes = [] 
-		keyAttributes.append(splits[0])
-                keyAttributes.append(splits[1])
-                keyAttributes.append(splits[2])
-		keyAttributes.append(splits[5])
-			
-		otherAttributes = []
-		rate_code, store_and_fwd_flag = splits[3:5]
-		otherAttributes.append(rate_code)
-		otherAttributes.append(store_and_fwd_flag)
-		otherAttributes.extend(splits[6:])
+		key1 = splits[0]
+		key2 = splits[1]
+		key3 = splits[2]
+		key4 = splits[5]
+		keyAttributes = (key1, key2, key3, key4)			
+
+		other1 = ",".join(splits[3:5])
+		other2 = ",".join(splits[6:])
+		otherAttributes = other1 + "," + other2
 		valuePair = ("trips", otherAttributes) 	
-	
+		
+		
 		print "%s\t%s" % (keyAttributes, valuePair)
