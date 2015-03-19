@@ -1,0 +1,37 @@
+#!/usr/bin/env python
+
+import sys
+
+current_key = None  
+isFirst = 1
+passenger_distribution = {}  
+trip_count = 1 
+
+
+for line in sys.stdin:
+	
+	key, value = line.split('\t')				 
+	value = eval(value)
+
+	tableName = value[0]
+
+	tempAttributes = value[1]
+	tableAttributes = tempAttributes.split(",") 
+	 
+	if key != current_key:
+		if isFirst == 1:
+			isFirst == 0 
+		else: 
+
+			temp = eval(key) 
+			medallion = temp[0]
+			print "%s\t%s" % (medallion, trip_count)
+
+			current_key = key 
+			trip_count = 1 
+		 
+	else:   
+		trip_count += 1
+
+#finalOutput = sorted(passenger_distribution.items(), k
+		
