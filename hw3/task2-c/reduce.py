@@ -5,7 +5,10 @@ import sys
 current_key = None 
 current_fares = [0]
 current_trips = [0] 
-finalAttributes = [] 
+finalAttributes = []
+passenger_distribution = {}  
+above10 = 0 
+
 
 for line in sys.stdin:
 	
@@ -33,8 +36,20 @@ for line in sys.stdin:
 		allAttributes = [] 
 		allAttributes.extend(current_fares)
 		allAttributes.extend(current_trips)
-		print "%s\t%s" % (key, allAttributes)
-	  		
+		
+		passenger_amount = allAttributes[10] 		 		
+		
+
+		if passenger_amount in passenger_distribution:
+			passenger_distribution[passenger_amount] += 1
+		else:
+			passenger_distribution[passenger_amount] = 1 
+
+finalOutput = sorted(passenger_distribution.items(), key = lambda x: -x[1]) 
+
+for pas in finalOutput:
+	print "%s\t%s" % (pas[0], pas[1])  
+		
 #if current_key == key:
 #	allAttributes =  []
  #       allAttributes.extend(current_fares)
