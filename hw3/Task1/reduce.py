@@ -2,7 +2,6 @@
 
 import sys
 
-
 current_key = None 
 current_fares = [0]
 current_trips = [0] 
@@ -17,35 +16,26 @@ for line in sys.stdin:
 
 	tempAttributes = value[1]
 	tableAttributes = tempAttributes.split(",") 
-	
-	if key == current_key:
-
-		if tableName == 'fares':
-                        current_fares = tableAttributes
-                else:
-                        current_trips = tableAttributes
-	else:
-		
-		if tableName == 'fares':
-                        current_fares = tableAttributes
-                else:
-                        current_trips = tableAttributes
-		
-		if current_key:   
-			allAttributes =  [] 
-			allAttributes.extend(current_fares)
-			allAttributes.extend(current_trips)  
-			print "%s\t%s" % (key, allAttributes) 
-	
+	 
+	if key != current_key: 
 		current_key = key 
 		
-		#if tableName == 'fares':
-                #	current_fares = tableAttributes
-                #else:
-                #	current_trips = tableAttributes
+		if tableName == 'fares':
+			current_fares = tableAttributes
+		else:
+			current_trips = tableAttributes  
+	else:
+		if tableName == 'trips':
+			current_trips = tableAttributes
+		else:
+			current_fares = tableAttributes  
 		
-		
-if current_key == key:
-	allAttributes =  []
-        allAttributes.extend(current_fares)
-        allAttributes.extend(current_trips)
+		allAttributes = [] 
+		allAttributes.extend(current_fares)
+		allAttributes.extend(current_trips)
+		print "%s\t%s" % (key, allAttributes)
+	  		
+#if current_key == key:
+#	allAttributes =  []
+ #       allAttributes.extend(current_fares)
+  #      allAttributes.extend(current_trips)
