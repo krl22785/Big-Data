@@ -60,7 +60,7 @@ for line in sys.stdin:
 finalOutput = sorted(dates.items(), key = lambda x: x[0]) 
 
 for rev in finalOutput:	
-	print "%s\t(%s, %s, %s, %s)" % (rev[0], rev[1]["fare"], rev[1]["surcharge"], rev[1]["tip"], rev[1]["tolls"]) 
+	print "%s\t(%.2f, %.2f, %.2f, %.2f)" % (rev[0], rev[1]["fare"], rev[1]["surcharge"], rev[1]["tip"], rev[1]["tolls"]) 
 
 
 
