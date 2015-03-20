@@ -34,7 +34,7 @@ for line in sys.stdin:
 		allAttributes = [] 
 		allAttributes.extend(current_fares)
 		allAttributes.extend(current_trips)
-		print "%s\t%s" % (key, allAttributes)
+		print "%s....%s\t%s" % (len(allAttributes), key, allAttributes)
 	#  	n += 1 
 	
 #if current_key == key:
