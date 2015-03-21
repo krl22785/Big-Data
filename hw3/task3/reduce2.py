@@ -56,12 +56,14 @@ for line in sys.stdin:
 				s1 = [i for i in eval(obs[0])] 
 				s1.extend(obs[1])
 				s1.extend(tableAttributes)
-				print "%s\t%s" % (s1[0], s1[1:])  
+				print "%s\t%s\t%s" % (n, s1[0], s1[1:])
+				n += 1  
 			else:
 				pass 
 
 		final_output = {}
 
+print n 
 
 
 
