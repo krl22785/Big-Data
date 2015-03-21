@@ -55,9 +55,11 @@ for line in sys.stdin:
 		otherAttributes = ",".join(splits[1:])
 		#print "licenses %s" %  otherAttributes
 		valuePair = ("licenses", otherAttributes) 
-				
-		print "%s\t%s" % (keyAttributes, valuePair) 
-
+		
+		if key1 != 'medallion':	
+			print "%s\t%s" % (keyAttributes, valuePair) 
+		else:
+			pass
 	else: 
 		pass 
 
