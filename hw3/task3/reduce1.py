@@ -61,14 +61,38 @@ for line in sys.stdin:
 			s1 = [i for i in eval(final[0])]
 			s1.extend(eval(final[1]))
 			s1.extend(tableAttributes)
-			print "%s\t%s" % (key, s1) 
+			print "%s\t%s" % (key, s1)
+			n += 1  
 		else:
-			print 'no' + " " + finalKey + " " + key 
+			pass
+
+if current_key != key:
+ 
+#	allAttributes = []
+#	allAttributes.extend(current_trips) 
+#	allAttributes.extend(current_fares) 
+#       storage = "%s\t%s" % (current_key, allAttributes)
+
+	final = storage.split("\t") 
+	finalKey = eval(final[0])[0]
+	
+	if finalKey == key: 
+		s1 = [i for i in eval(final[0])]
+                s1.extend(eval(final[1]))
+                s1.extend(tableAttributes)
+                print "%s\t%s" % (key, s1)
+               	n += 1
+
+else: 
+	pass
+
+print n  
 
 
-if current_key == key: 
-	allAttributes = []
-        allAttributes.extend(current_trips)
-        allAttributes.extend(current_fares)
-        print "%s\t%s" % (current_key, allAttributes)
+
+
+
+
+
+
 
