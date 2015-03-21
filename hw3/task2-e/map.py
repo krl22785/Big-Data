@@ -29,7 +29,7 @@ for line in sys.stdin:
 		else:
 			pass		
 
-	else:
+	elif len(splits) == 14:
 		
 		key1 = splits[0]
 		key2 = splits[1]
@@ -46,3 +46,7 @@ for line in sys.stdin:
 			print "%s\t%s" % (keyAttributes, valuePair)
 		else:
 			pass
+
+
+	else:
+		pass

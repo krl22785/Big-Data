@@ -72,6 +72,6 @@ finalOutput = sorted(medallion_trips.items(), key = lambda x: -x[1])
 for med in finalOutput:
         print "%s\t%s" % (med[0], med[1])
 
-
+print len(finalOutput)
 
 

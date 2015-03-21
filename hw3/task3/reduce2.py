@@ -7,6 +7,8 @@ current_fares = []
 current_trips = []
 n = 0 
 final_output = {} 
+nay = []
+
 
 for line in sys.stdin:
 	
@@ -48,8 +50,7 @@ for line in sys.stdin:
                                	current_trips = tableAttributes 
 		 
 	else:	
-		for obs in final_output.items():
-			
+		for obs in final_output.items():			
 			compare_key = eval(obs[0])[0]
 
 			if compare_key == key:
@@ -59,16 +60,6 @@ for line in sys.stdin:
 				print "%s\t%s\t%s" % (n, s1[0], s1[1:])
 				n += 1  
 			else:
-				pass 
+				nay.append(compare_key)  
 
 		final_output = {}
-
-print n 
-
-
-
-
-
-
-
- 

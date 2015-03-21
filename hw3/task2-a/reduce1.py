@@ -38,7 +38,6 @@ for line in sys.stdin:
         		else:
                 		fare_distribution[fare_amount] = 1
 
-
 			current_trips = [] 
 			current_fares = [] 	
 			current_key = key
@@ -68,9 +67,5 @@ if current_key == key:
                 fare_distribution[fare_amount] = 1        
 	
 finalOutput = sorted(fare_distribution.items(), key = lambda x: -x[1])
-
 for fare in finalOutput:
         print "%s\t%s" % (fare[0], fare[1])
-
-
-

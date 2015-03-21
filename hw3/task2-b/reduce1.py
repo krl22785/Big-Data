@@ -66,10 +66,6 @@ if current_key == key:
 
 	if fare_amount <= 10.00:
 		above10 += 1
+		print above10
 	else:
 		pass
-	
-	print above10
-
-
-
