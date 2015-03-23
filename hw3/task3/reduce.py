@@ -1,74 +1,64 @@
 #!/usr/bin/env python
 
 import sys
+import csv 
 
 current_key = None
 current_fares = []
 current_trips = [] 
-storage = {} 
-n = 0 
+storage = {}  
+license_storage = {} 
+
+n = 0
 
 for line in sys.stdin:
 
         key, value = line.split('\t')
-        value = eval(value)
+        
+	value1 = eval(value)
 
-        tableName = value[0]
-
-        tempAttributes = value[1]
-        tableAttributes = tempAttributes.split(",")
-
-	if tableName != 'licenses':  
-        	if key == current_key:
+        tableName = value1[0]
+	#print tableName
+        tempAttributes = value1[1]
+        tableAttributes = tempAttributes.split("??")
 	
-                	if tableName == 'fares':
+	
+	if tableName != 'licenses': 
+ 	 	
+		if key == current_key:
+
+			if tableName == 'fares':
                         	current_fares = tableAttributes
-               		else:
-                        	current_trips = tableAttributes
-        	else:  
- 			 
-               		allAttributes = []
-                	allAttributes.extend(current_trips)
-                	allAttributes.extend(current_fares)
-		
-			if len(allAttributes) == 17:  #make sure each key appears in both 
-
-                	#print "%s\t%s" % (current_key, allAttributes)
-			
-				storage[current_key] = allAttributes 
-				current_trips = [] 
-				current_fares = [] 	
-				current_key = key
+                	else:
+                        	current_trips = tableAttributes	
 	
-				if tableName == 'fares':
-        		               	current_fares = tableAttributes
-               			else:
-                       			current_trips = tableAttributes
-			else: 
-				current_trips = []
-                        	current_fares = []
-                        	current_key = key
 
-                        	if tableName == 'fares':
-                                	current_fares = tableAttributes
-                        	else:
-                                	current_trips = tableAttributes
+			allAttributes = []
+                        allAttributes.extend(current_trips)
+                        allAttributes.extend(current_fares)
+  
+			storage[current_key] = allAttributes 
+ 
+			current_trips = [] 
+			current_fares = []			
+		else: 
+			current_key = key 
+
+			if tableName == 'fares':
+                               	current_fares = tableAttributes
+                      	else:
+                               	current_trips = tableAttributes 
+
 	else:
+		license_storage[key] = value1[1].split("??")
+				
 
-		for item in storage.items():
-			s1 = [i for i in eval(item[0])] 
-			s1.extend(item[1]) 
-			s1.extend(tableAttributes) 
-			n += 1
-			print "%s\t%s" % (s1[0], s1[1:])  
+for item in storage.items():
+	compare_value = eval(item[0])[0]
+	s1 = [i for i in eval(item[0])] 
+	s1.extend(item[1])
+	s1.extend(license_storage[compare_value])
+	n +=1 
+	print "%s\t%s" % (s1[0], s1[1:]) 
 
-		storage = {} 
-			
-print n 
-
-if current_key == key: 
-	allAttributes = []
-        allAttributes.extend(current_trips)
-        allAttributes.extend(current_fares)
-        print "%s\t%s" % (current_key, allAttributes)
-
+print n

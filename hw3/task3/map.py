@@ -2,7 +2,7 @@
 
 import sys
 import os
-
+import csv
 
 for line in sys.stdin:
 	
@@ -20,9 +20,9 @@ for line in sys.stdin:
 		key4 = splits[3]
 		keyAttributes = (key1, key2, key3, key4)
  
-		otherAttributes = ",".join(splits[4:]) 		
+		otherAttributes = "??".join(splits[4:]) 		
 		
-		valuePair = ("fares", otherAttributes) 
+		valuePair = ("fares", otherAttributes)  
 		
 		if key1 != 'medallion': 
 			print "%s\t%s" % (keyAttributes, valuePair) 
@@ -37,8 +37,8 @@ for line in sys.stdin:
 		key4 = splits[5]
 		keyAttributes = (key1, key2, key3, key4)			
 
-		other1 = ",".join(splits[3:5])
-		other2 = ",".join(splits[6:])
+		other1 = "??".join(splits[3:5])
+		other2 = "??".join(splits[6:])
 		otherAttributes = other1 + "," + other2
 		valuePair = ("trips", otherAttributes) 	
 		
@@ -47,24 +47,18 @@ for line in sys.stdin:
 		else:
 			pass
 
-	elif len(splits) == 16:
-	
-		key1 = splits[0] 
-		keyAttributes = (key1) 
-
-		otherAttributes = ",".join(splits[1:])
-		#print "licenses %s" %  otherAttributes
-		valuePair = ("licenses", otherAttributes) 
+	else:
+		newline = line.splitlines() 
+		reader = csv.reader(newline)
+		lic_output = next(reader)
+				
+		key1 = lic_output[0]
+		keyAttributes = (key1)
+		otherAttributes = "??".join(lic_output[1:])
 		
+		valuePair = ("licenses", otherAttributes)   
+
 		if key1 != 'medallion':	
-			print "%s\t%s" % (keyAttributes, valuePair) 
+			print "%s\t%s" % (key1, valuePair) 
 		else:
-			pass
-	else: 
-		pass 
-
-
-
-
-
-	 
+			pass	 
