@@ -1,0 +1,19 @@
+[
+    {
+    "Type": "STREAMING",
+    "ActionOnFailure": "CONTINUE",
+    "Args": [
+        "-D",
+        "mapreduce.job.reduces=1",
+        "-files",
+	"s3://lunabd/task1/map.py,s3://lunabd/task1/reduce.py",
+        "-mapper",
+        "map.py",
+        "-reducer",
+        "reduce.py",
+        "-input",
+        "s3://lunabd/input",
+        "-output",
+        "s3://lunabd/task1/Test.output"
+    ]}
+]
