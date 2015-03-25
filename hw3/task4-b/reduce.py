@@ -1,14 +1,5 @@
 #!/usr/bin/env python
 
-
-#List the top 10 agents by total revenue.
-#Output: A key-value pair per line, where the key is the agent name, and the value contains the total revenue.
-#All the values in the output must have a precision of two decimal digits.
-#The output directory produced by Hadoop should be named Top10Revenue.
-#Note: This is a Top K task, so specifically for this task, remember to use a single reducer (otherwise you may have one Top K for each reducer).
-
-
-
 import sys
 import csv 
 
@@ -30,8 +21,7 @@ for line in sys.stdin:
 	#print tableName
         tempAttributes = value1[1]
         tableAttributes = tempAttributes.split("??")
-	
-	
+		
 	if tableName != 'licenses': 
  	 	
 		if key == current_key:
@@ -69,8 +59,11 @@ for item in storage.items():
 	compare_value = eval(item[0])[0]
 	s1 = [i for i in eval(item[0])] 
 	s1.extend(item[1])
-	s1.extend(license_storage[compare_value])
-	
+
+	try: 
+		s1.extend(license_storage[compare_value])
+	except:
+		pass
 	
 	if len(s1) != 35:
 		pass
@@ -88,14 +81,10 @@ for item in storage.items():
 			top_k[agent_name] = total 
 
 final_output = sorted(top_k.items(), key = lambda x: - x[1])
-
 limit = 0 
-
 for item in final_output:
 	if limit < 10:
 		print "%s\t%s" % (item[0], item[1]) 
 		limit += 1
 	else:
 		break
-
-

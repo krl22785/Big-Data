@@ -3,12 +3,8 @@
 import sys
 import os
 
-
 for line in sys.stdin:
-	
-	#env = os.chdir['HOME']
-	#env = os.environ["mapreduce_map_input_file"]	
- 	
+		
 	line = line.strip() 
 	splits = line.split(",")
 
