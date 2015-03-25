@@ -48,7 +48,6 @@ for line in sys.stdin:
                                	current_fares = tableAttributes
                       	else:
                                	current_trips = tableAttributes 
-
 	else:
 		license_storage[key] = value1[1].split("??")
 				
@@ -57,8 +56,16 @@ for item in storage.items():
 	compare_value = eval(item[0])[0]
 	s1 = [i for i in eval(item[0])] 
 	s1.extend(item[1])
-	s1.extend(license_storage[compare_value])
-	n +=1 
-	print "%s\t%s" % (s1[0], s1[1:]) 
+	
+	try:
+		toAdd = license_storage[compare_value]
+		s1.extend(license_storage[compare_value])
+		if len(s1) != 35:
+			pass
+		else:		
+			print "%s\t%s" % (s1[0], s1[1:]) 
+			n += 1
+	except:
+		pass 
 
-print n
+print n 
