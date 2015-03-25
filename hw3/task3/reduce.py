@@ -67,5 +67,3 @@ for item in storage.items():
 			n += 1
 	except:
 		pass 
-
-print n 
