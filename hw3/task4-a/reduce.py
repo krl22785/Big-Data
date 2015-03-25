@@ -59,15 +59,17 @@ test = {}
 for item in storage.items():
 	compare_value = eval(item[0])[0]
 	s1 = [i for i in eval(item[0])] 
-	s1.extend(item[1])
-	s1.extend(license_storage[compare_value])
+	s1.extend(item[1])	
 	
-	vehicle = s1[25]
+	try:
+		s1.extend(license_storage[compare_value])
+	except:
+		pass 
 		
 	if len(s1) != 35:
 		pass
 	else:
-
+		vehicle = s1[25]
 		fare = float(s1[14])
 		surcharge = float(s1[15])
 		tip = float(s1[17])
