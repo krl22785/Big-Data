@@ -1,0 +1,48 @@
+Task 1
+
+https://s3-us-west-2.amazonaws.com/lunabd/task1/TripFareJoin.output/part-00000
+https://s3-us-west-2.amazonaws.com/lunabd/task1/TripFareJoin.output/part-00001
+
+Task 2-a 
+
+https://s3-us-west-2.amazonaws.com/lunabd/task2-a/FareAmounts.output/part-00000
+https://s3-us-west-2.amazonaws.com/lunabd/task2-a/FareAmounts.output/part-00001
+
+Task 2-b 
+
+https://s3-us-west-2.amazonaws.com/lunabd/task2-b/TripAmount.output/part-00000
+https://s3-us-west-2.amazonaws.com/lunabd/task2-b/TripAmount.output/part-00001
+
+Task 2-c
+
+https://s3-us-west-2.amazonaws.com/lunabd/task2-c/NumberPassengers.output/part-00000
+https://s3-us-west-2.amazonaws.com/lunabd/task2-c/NumberPassengers.output/part-00001
+
+Task 2-d 
+
+https://s3-us-west-2.amazonaws.com/lunabd/task2-d/TotalRevenue.output/part-00000
+https://s3-us-west-2.amazonaws.com/lunabd/task2-d/TotalRevenue.output/part-00001
+
+Task 2-e 
+
+https://s3-us-west-2.amazonaws.com/lunabd/task2-e/MedallionTrips.output/part-00000
+https://s3-us-west-2.amazonaws.com/lunabd/task2-e/MedallionTrips.output/part-00001
+
+Task 2-f 
+
+https://s3-us-west-2.amazonaws.com/lunabd/task2-f/UniqueTaxis.output/part-00000
+https://s3-us-west-2.amazonaws.com/lunabd/task2-f/UniqueTaxis.output/part-00001
+
+Task 3 
+
+https://s3-us-west-2.amazonaws.com/lunabd/task3/VehicleJoin.output/part-00000
+https://s3-us-west-2.amazonaws.com/lunabd/task3/VehicleJoin.output/part-00001
+
+Task 4-a 
+
+https://s3-us-west-2.amazonaws.com/lunabd/task4-a/VehicleType.output/part-00000
+https://s3-us-west-2.amazonaws.com/lunabd/task4-a/VehicleType.output/part-00001
+
+Task 4-b
+
+https://s3-us-west-2.amazonaws.com/lunabd/task4-b/Top10Revenue.output/part-00000
